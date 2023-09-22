@@ -12,11 +12,10 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const projects = [
-    { name: 'Chidori', description: 'Webapp using a bespoke DCGAN to generate novel images of birds', href: 'http://chidori.michaelvernau.com', icon: ChartPieIcon },
-    { name: 'Helius+', description: 'Point cloud perception & tracking application', href: 'https://www.cepton.com/products-2023/helius', icon: CursorArrowRaysIcon },
-    { name: 'Monster Forest', description: 'Browser hosted unity game', href: 'https://team-candlelight.itch.io/monster-forest', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+    { name: 'Chidori', description: 'Webapp using a bespoke DCGAN to generate novel images of birds', href: 'http://chidori.michaelvernau.com', imgSrc: "/helius_log.png" },
+    { name: 'Helius+', description: 'Point cloud perception & tracking application', href: 'https://www.cepton.com/products-2023/helius', imgSrc: "/helius_log.png" },
+    { name: 'Monster Forest', description: 'Browser hosted unity game', href: 'https://team-candlelight.itch.io/monster-forest', imgSrc: "/helius_log.png" },
+
 ]
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -73,7 +72,11 @@ export default function HeaderBanner() {
                                             className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                                         >
                                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                                <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                                                <img
+                                                    src={item.imgSrc}
+                                                    alt={item.name}
+                                                    className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                                                />
                                             </div>
                                             <div className="flex-auto">
                                                 <a href={item.href} className="block font-semibold text-gray-900">
@@ -102,19 +105,16 @@ export default function HeaderBanner() {
                     </Popover>
 
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Features
+                        Resume
                     </a>
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Marketplace
+                        About Me
                     </a>
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Company
+                        Cepton
                     </a>
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
